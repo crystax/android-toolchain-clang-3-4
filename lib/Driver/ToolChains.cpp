@@ -1574,6 +1574,11 @@ void Generic_GCC::GCCInstallationDetector::findMIPSABIDirSuffix(
     }
   }
 
+  // Special case for Android toolchain
+  if (TargetArch == llvm::Triple::mips64el &&
+      hasCrtBeginObj(Path + "/mips64-r2"))
+    Suffix += "/mips64-r2";
+
   if (!hasCrtBeginObj(Path + Suffix))
     Suffix.clear();
 }

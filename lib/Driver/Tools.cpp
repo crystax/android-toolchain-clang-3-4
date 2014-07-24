@@ -955,7 +955,7 @@ static void getMipsCPUAndABI(const ArgList &Args,
                              StringRef &CPUName,
                              StringRef &ABIName) {
   const char *DefMips32CPU = "mips32";
-  const char *DefMips64CPU = "mips64";
+  const char *DefMips64CPU = "mips64r2";
 
   if (Arg *A = Args.getLastArg(options::OPT_march_EQ,
                                options::OPT_mcpu_EQ))
