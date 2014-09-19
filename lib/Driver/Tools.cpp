@@ -6806,6 +6806,17 @@ void gnutools::Link::ConstructJob(Compilation &C, const JobAction &JA,
           Args.hasArg(options::OPT_pthreads) || OpenMP)
         CmdArgs.push_back("-lpthread");
 
+      if (isAndroid) {
+          if (Args.hasArg(options::OPT_static))
+              CmdArgs.push_back("-lcrystax");
+          else {
+              CmdArgs.push_back("-Bstatic");
+              CmdArgs.push_back("-lcrystax");
+              CmdArgs.push_back("-Bdynamic");
+          }
+          CmdArgs.push_back("-lm");
+      }
+
       CmdArgs.push_back("-lc");
 
       if (Args.hasArg(options::OPT_static))
