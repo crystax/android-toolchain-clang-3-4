@@ -4996,6 +4996,10 @@ public:
 
     Builder.defineMacro("_MIPS_ARCH", "\"" + CPU + "\"");
     Builder.defineMacro("_MIPS_ARCH_" + StringRef(CPU).upper());
+
+    Builder.defineMacro("__GCC_HAVE_SYNC_COMPARE_AND_SWAP_1");
+    Builder.defineMacro("__GCC_HAVE_SYNC_COMPARE_AND_SWAP_2");
+    Builder.defineMacro("__GCC_HAVE_SYNC_COMPARE_AND_SWAP_4");
   }
 
   virtual void getTargetBuiltins(const Builtin::Info *&Records,
